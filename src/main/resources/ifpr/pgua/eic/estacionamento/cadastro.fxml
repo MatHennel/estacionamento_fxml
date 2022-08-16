@@ -24,7 +24,7 @@
     <TextField fx:id="tfModelo"/>
 
     <Label text="Fabricante"/>
-    <TextField fx:id="tfFabricante"/>
+    <ComboBox fx:id="cbFabricante"/>
 
     <Label text="Cor"/>
     <TextField fx:id="tfCor"/>
@@ -33,8 +33,8 @@
     <TextField fx:id="tfAnoFabricacao"/>
 
     <HBox>
-        <Button text="Cancelar" onAction="#cancelar"/>
-        <Button text="Cadastrar" onAction="#cadastrar"/>
+        <Button text="Cancelar" onAction="#cancelar" />
+        <Button text="Cadastrar" onAction="#cadastrar" />
     </HBox>
 
 </VBox>

@@ -1,13 +1,19 @@
 package ifpr.pgua.eic.estacionamento.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import ifpr.pgua.eic.estacionamento.App;
 import ifpr.pgua.eic.estacionamento.models.Estacionamento;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
-public class JanelaCadastro {
+public class JanelaCadastro implements Initializable {
     
     //declaração dos componentes JavaFX. O nome do atributo
     //deve ser igual a propriedade fx:id no FXML.
@@ -19,7 +25,7 @@ public class JanelaCadastro {
     private TextField tfModelo;
 
     @FXML
-    private TextField tfFabricante;
+    private ComboBox<String> cbFabricante;
 
     @FXML
     private TextField tfCor;
@@ -38,7 +44,7 @@ public class JanelaCadastro {
     private void cadastrar(){
         String placa = tfPlaca.getText();
         String modelo = tfModelo.getText();
-        String fabricante = tfFabricante.getText();
+        String fabricante = cbFabricante.getValue();
         String cor = tfCor.getText();
         String sAnoFabricacao = tfAnoFabricacao.getText();
 
@@ -55,7 +61,7 @@ public class JanelaCadastro {
     }
 
     @FXML
-    private void cancelar(){
+    private void cancelar(ActionEvent evento){
         App.popScreen();
     }
 
@@ -64,9 +70,16 @@ public class JanelaCadastro {
     private void limpar(){
         tfPlaca.clear();
         tfModelo.clear();
-        tfFabricante.clear();
+        cbFabricante.getSelectionModel().clearSelection();
         tfCor.clear();
         tfAnoFabricacao.clear();
+    }
+
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        cbFabricante.getItems().addAll("Fiat","Chevrolet","Toyota","Suzuki","citroen");
+        
     }
 
 
